@@ -373,6 +373,11 @@ async function initCesium(): Promise<any> {
     sceneModePicker: false,
     navigationHelpButton: false,
     fullscreenButton: false,
+    // Disable Knockout-backed widgets — their data-bind attributes are
+    // evaluated via `new Function(...)`, which is blocked by host iframe CSPs
+    // that don't allow 'unsafe-eval'.
+    selectionIndicator: false,
+    infoBox: false,
     // Disable terrain (requires Ion)
     terrainProvider: undefined,
     // WebGL context options for sandboxed iframe rendering
