@@ -5,10 +5,9 @@ WORKDIR /build
 # `npm run build` in examples/map-server invokes `bun build`, so install bun.
 RUN npm install -g bun
 
-# Build the patched map-server straight from the fork branch.
-# TODO: switch `--branch` to `main` after the fork PR is merged.
+# Build the patched map-server straight from the fork's main branch.
 ARG EXT_APPS_REPO=https://github.com/kunwar31/ext-apps.git
-ARG EXT_APPS_BRANCH=fix/cesium-csp-knockout-widgets
+ARG EXT_APPS_BRANCH=main
 RUN git clone --depth 1 --branch "${EXT_APPS_BRANCH}" "${EXT_APPS_REPO}" . \
  && npm install --no-audit --no-fund \
  && cd examples/map-server \
