@@ -4,4 +4,4 @@ WORKDIR /app
 RUN npm install --omit=dev @modelcontextprotocol/server-map
 ENV NODE_ENV=production PORT=3001
 EXPOSE 3001
-CMD ["npx", "mcp-map-server"]
+CMD ["node_modules/@modelcontextprotocol/server-map/dist/index.js"]
