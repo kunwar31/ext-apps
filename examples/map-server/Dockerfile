@@ -24,4 +24,5 @@ COPY --from=builder --chown=node:node /build/examples/map-server/dist /app/dist
 
 ENV NODE_ENV=production PORT=3001
 EXPOSE 3001
-CMD ["node", "/app/dist/index.js"]
+# Base image has `node` as the entrypoint, so CMD is just the script path.
+CMD ["dist/index.js"]
